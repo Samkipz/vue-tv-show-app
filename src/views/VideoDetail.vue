@@ -30,7 +30,7 @@ export default {
         playerOptions() {
             return {
                 language: 'en',
-                playbackRates: [0.7, 1.0, 1.5],
+                playbackRates: [0.7, 1.0, 1.5, 2.5],
                 controls: true,
                 sources: [{
                     type: 'video/mp4',
@@ -49,7 +49,7 @@ export default {
 </script>
 
 
-<style lang="scss" scoped>
+<style lang="scss">
 .video-detail {
     display: flex;
     flex-direction: column;
@@ -61,7 +61,7 @@ export default {
         color: red;
         font-size: 4vmin;
         font-weight: 700;
-        text-align: start;
+        text-align: center;
     }
 
     & .movie-row {
@@ -72,7 +72,6 @@ export default {
         & .movie-player {
             height: 60vh;
             width: 60vw;
-            border: 1px solid black;
         }
 
         /* Change styles form style on large screen 900px and above*/
@@ -82,5 +81,9 @@ export default {
             }
         }
     }
+}
+
+.video-js {
+    margin: auto;
 }
 </style>

@@ -24,9 +24,14 @@
 <script>
 
 export default {
-    data() {
-        return {
-            videos: this.$store.state.videos
+    mounted() {
+        this.$store.dispatch('loadVideos');
+    },
+    methods: {
+    },
+    computed: {
+        videos() {
+            return this.$store.state.videos
         }
     }
 }
