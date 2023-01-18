@@ -1,23 +1,29 @@
 <template>
-    <div class="video-detail">
-        <div class="movie-title">{{ video.name }}</div>
-        <div class="movie-row">
-            <div class="movie-player">
+    <Navbar />
+    <v-container>
+        <v-row>
+            <v-col class="d-flex justify-center">
+                <h3> {{ video.name }}</h3>
+            </v-col>
+        </v-row>
+        <v-row class="d-flex justify-center">
+            <v-col class="sm-12 md-9 d-flex justify-center">
                 <video-player ref="videoPlayer" :options="playerOptions"></video-player>
-            </div>
-            <div class="movie-info">
-                <h4> {{ video.name }}</h4>
+            </v-col>
+            <v-col class="d-flex justify-center">
                 <h4> {{ video.description }}</h4>
-            </div>
-        </div>
+            </v-col>
+        </v-row>
+    </v-container>
 
 
 
-    </div>
+
 
 </template>
 
 <script>
+import Navbar from '@/components/Navbar.vue';
 import 'video.js/dist/video-js.css'
 import VideoPlayer from '../components/VideoPlayer.vue';
 
@@ -42,7 +48,8 @@ export default {
         }
     },
     components: {
-        VideoPlayer
+        VideoPlayer,
+        Navbar
     }
 }
 

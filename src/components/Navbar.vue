@@ -1,10 +1,27 @@
 <template>
-    <!-- <div class="nav">
-        <slot name="nav-item"></slot>
-    </div> -->
-    <nav class="nav">
-        <slot name="nav-item"></slot>
-    </nav>
+    <v-app-bar color="cyan lighten-4 accent-4" dark>
+        <v-app-bar-nav-icon></v-app-bar-nav-icon>
+
+        <v-toolbar-title></v-toolbar-title>
+
+
+        <v-spacer> <router-link :to="{ name: 'home' }">AWESOME VIDEO SHOWS</router-link> </v-spacer>
+
+
+        <v-btn icon>
+            <v-icon>mdi-magnify</v-icon>
+        </v-btn>
+
+        <v-btn class="ma-2" outlined color="Normal">
+            REGISTER
+        </v-btn>
+
+        <v-btn class="ma-2" outlined color="Normal">
+            LOGIN
+        </v-btn>
+
+
+    </v-app-bar>
 
 </template>
 
