@@ -13,7 +13,8 @@ const routes = [
     path: '/video/:id',
     name: 'video-details',
     component: VideoDetail,
-    params: true
+    params: true,
+    props: true
   },
   {
     path: '/about',

@@ -62,7 +62,7 @@
 <script>
 
 export default {
-    mounted() {
+    created() {
         this.$store.dispatch('loadVideos');
     },
     methods: {
