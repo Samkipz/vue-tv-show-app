@@ -2,10 +2,6 @@
     <!-- App.vue -->
 
     <v-app>
-        <div>
-            <Navbar />
-        </div>
-
         <!-- Sizes your content based upon application components -->
         <v-main>
 
@@ -28,14 +24,13 @@
 </template>
 
 <script>
-import Navbar from '@/components/Navbar.vue';
+
 import MovieList from '../components/MovieList.vue';
 
 export default {
     name: "Home-page",
     components: {
         MovieList,
-        Navbar
     }
 }
 </script>

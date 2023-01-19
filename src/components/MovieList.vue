@@ -62,11 +62,6 @@
 <script>
 
 export default {
-    created() {
-        this.$store.dispatch('loadVideos');
-    },
-    methods: {
-    },
     computed: {
         videos() {
             return this.$store.state.videos

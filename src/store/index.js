@@ -7,32 +7,6 @@ export default createStore({
   state: {
     videos: [],
     addedToFavourites: []
-    // videos: [
-    //   {
-    //     id: 1,
-    //     name: "first movie",
-    //     description: "first movie description",
-    //     videoUrl: "https://static.videezy.com/system/resources/previews/000/004/675/original/REPYellowWipes_Presentation.mp4"
-    //   },
-    //   {
-    //     id: 2,
-    //     name: "second movie",
-    //     description: "second movie description",
-    //     videoUrl: "https://static.videezy.com/system/resources/previews/000/034/532/original/point2.mp4"
-    //   },
-    //   {
-    //     id: 3,
-    //     name: "third movie",
-    //     description: "third movie description",
-    //     videoUrl: "https://static.videezy.com/system/resources/previews/000/020/207/original/Awards_Show_Video_Preview.mp4"
-    //   },
-    //   {
-    //     id: 4,
-    //     name: "fourth movie",
-    //     description: "lands of the dragons",
-    //     videoUrl: "https://static.videezy.com/system/resources/previews/000/011/088/original/Videezy_Slideshow_05_Preview.mp4"
-    //   }
-    // ]
   },
   getters: {
   },
@@ -47,6 +21,10 @@ export default createStore({
       let addedToFavourites = state.addedToFavourites.concat(videoId)
       state.addedToFavourites = addedToFavourites;
       window.localStorage.addedToFavourites = JSON.stringify(addedToFavourites)
+    },
+    ADD_VIDEO(state, video) {
+      let videos = state.videos.concat(video);
+      state.videos = videos;
     }
   },
   actions: {
@@ -58,6 +36,12 @@ export default createStore({
     },
     addFav({ commit }, videoId) {
       commit('ADDED_VIDEO_TO_FAV', videoId)
+    },
+    async createVideo({ commit }, video) {
+      let response = await Api().post('/videos', video)
+      let addedVideo = response.data
+      commit('ADD_VIDEO', addedVideo);
+      return addedVideo
     }
   },
 

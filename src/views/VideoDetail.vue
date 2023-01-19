@@ -1,5 +1,5 @@
 <template>
-    <Navbar />
+
     <v-container>
         <v-row>
             <v-col class="d-flex justify-center">
@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import Navbar from '@/components/Navbar.vue';
+
 import 'video.js/dist/video-js.css'
 import VideoPlayer from '../components/VideoPlayer.vue';
 import { mapState } from 'vuex';
@@ -34,7 +34,11 @@ import { mapState } from 'vuex';
 export default {
     computed: {
         video() {
-            return this.$store.state.videos.find(vid => parseInt(vid.id) === parseInt(this.$route.params.id))
+            try {
+                return this.$store.state.videos.filter(vid => parseInt(vid.id) === parseInt(this.$route.params.id))
+            } catch (err) {
+                return null;
+            }
             // return this.$store.state.videos.find(vid => parseInt(vid.id) === parseInt((this.$route.params.id)) ? alert(vid.name) : alert('Not found'))
         },
         ...mapState(['addedToFavourites', 'videos']),
@@ -58,7 +62,6 @@ export default {
     },
     components: {
         VideoPlayer,
-        Navbar
     },
     methods: {
         addFav() {

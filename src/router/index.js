@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Homepage from '../views/Homepage.vue'
 import VideoDetail from '../views/VideoDetail.vue'
+import VideoCreate from '../views/VideoCreate.vue'
+import AdminVideos from '../views/AdminVideos.vue'
 // import HelloWorld from '@/components/HelloWorld.vue'
 
 const routes = [
@@ -14,7 +16,16 @@ const routes = [
     name: 'video-details',
     component: VideoDetail,
     params: true,
-    props: true
+  },
+  {
+    path: '/video/new',
+    name: 'video-create',
+    component: VideoCreate
+  },
+  {
+    path: '/admin/videos',
+    name: 'admin-videos',
+    component: AdminVideos
   },
   {
     path: '/about',

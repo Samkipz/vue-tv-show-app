@@ -1,5 +1,8 @@
 <template>
   <v-app>
+    <div>
+      <Navbar />
+    </div>
     <v-main>
       <router-view />
     </v-main>
@@ -7,18 +10,22 @@
 </template>
 
 <script>
+import Navbar from './components/Navbar.vue';
+
 
 export default {
   name: 'App',
-
-  data: () => ({
-    //
-  }),
+  created() {
+    this.$store.dispatch('loadVideos');
+  },
+  components: {
+    Navbar
+  }
 }
 </script>
 
 <style lang="scss">
 a {
-  text-decoration: none !important;
+  text-decoration: none;
 }
 </style>
