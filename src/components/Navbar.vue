@@ -1,8 +1,9 @@
 <template>
-    <v-app-bar color="cyan lighten-4 accent-4" dark>
+    <v-app-bar color="cyan lighten-4 accent-4" elevation="4" dark>
         <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
         <v-toolbar-title>
+            <router-link :to="{ name: 'home' }">AWESOME VIDEO SHOWS</router-link>
             <v-btn class="ma-2" outlined color="Normal" to="/video/new">
                 ADD VIDEOS
             </v-btn>
@@ -10,7 +11,7 @@
 
 
 
-        <v-spacer> <router-link :to="{ name: 'home' }">AWESOME VIDEO SHOWS</router-link> </v-spacer>
+        <v-spacer> </v-spacer>
 
 
         <v-btn icon>

@@ -15,9 +15,10 @@ import Navbar from './components/Navbar.vue';
 
 export default {
   name: 'App',
-  created() {
+  mounted() {
     this.$store.dispatch('loadVideos');
   },
+
   components: {
     Navbar
   }
@@ -27,5 +28,7 @@ export default {
 <style lang="scss">
 a {
   text-decoration: none;
+  text-transform: none;
+  color: black;
 }
 </style>

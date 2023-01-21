@@ -1,60 +1,25 @@
 <template>
     <div class="movie-list">
-        <div v-for="video in videos" :key="video.id">
-            <router-link :to="{ name: 'video-details', params: { id: video.id } }">
 
-                <v-card class="mx-auto my-12" max-width="374">
+        <v-container class="grey lighten-5" fluid>
+            <v-row class="d-flex">
+                <v-col hover v-for="video in videos" :key="video.id" cols="12" sm="4" md="3">
+                    <router-link :to="{ name: 'video-details', params: { id: video.id } }">
+                        <v-hover v-slot="{ hover }">
+                            <v-card hover :elevation="hover ? 12 : 2" :class="{ 'on-hover': hover }">
 
+                                <v-img height="200" cover :src="video.thumbnail"></v-img>
 
-                    <v-img height="250" :src="video.thumbnail"></v-img>
+                            </v-card>
+                        </v-hover>
+                        <div class="text-h6 mb-1 font-weight-medium text-center">
+                            {{ video.name }}
+                        </div>
+                    </router-link>
+                </v-col>
 
-                    <v-card-title> {{ video.name }} </v-card-title>
-
-                    <v-card-text>
-                        <v-row align="center" class="mx-0">
-
-
-
-                        </v-row>
-
-                    </v-card-text>
-
-                    <v-divider class="mx-4"></v-divider>
-
-
-
-                    <v-card-text>
-                        <v-chip-group v-model="selection" active-class="deep-purple accent-4 white--text" column>
-                            <v-chip>Horror</v-chip>
-
-                            <v-chip>Action</v-chip>
-
-                            <v-chip>Thriller</v-chip>
-
-                            <v-chip>Adventure</v-chip>
-                        </v-chip-group>
-                    </v-card-text>
-
-                    <!-- <v-card-actions>
-      <v-btn
-        color="deep-purple lighten-2"
-        text
-        @click="reserve"
-      >
-        Reserve
-      </v-btn>
-    </v-card-actions> -->
-                </v-card>
-
-            </router-link>
-
-
-
-
-
-
-        </div>
-        <!-- <img src="../assets/images/cytonn.png" class="movie-item-img" alt="movie avatar"> -->
+            </v-row>
+        </v-container>
 
     </div>
 </template>
@@ -71,55 +36,36 @@ export default {
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .movie-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-}
+    justify-content: space-evenly;
 
-.movie-item {
-    // display: flex;
-    height: 50vmin;
-    // padding: 5vmin;
-    width: 90%;
-    border: 1px solid grey;
-    text-align: center;
-    padding: 0.5vmin 0;
 
-    & .video-img {
-        height: 70%;
-        width: 100%;
+
+    @media screen and (max-width: 600px) {
+        & .v-col {
+            border: 1px solid red;
+            display: flex;
+            justify-content: center;
+        }
     }
 
-    & .video-name {
-        height: 10%;
-        width: 100%;
+    & .v-card {
+        display: flex !important;
+
+        & :hover {
+            transition: opacity .4s ease-in-out;
+            opacity: 0.8;
+        }
     }
 
-    & .video-tag {
-        height: 10%;
-        width: 100%;
-    }
-
-    & .movie-item-img {
-        height: 100%;
-        width: 100%;
-    }
-}
-
-/* Change styles form style on large screen 900px and above*/
-@media screen and (min-width: 600px) {
-    .movie-item {
-        width: 50%;
-    }
-}
-
-/* Change styles form style on large screen 900px and above*/
-@media screen and (min-width: 900px) {
-    .movie-item {
-        width: 20%;
-        flex-direction: row;
+    @media screen and (max-width: 600px) {
+        .v-card {
+            // width: 60vw;
+            justify-content: center;
+        }
     }
 }
 </style>
