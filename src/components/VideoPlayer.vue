@@ -17,11 +17,6 @@ export default {
             }
         }
     },
-    // data() {
-    //     return {
-    //         player: null
-    //     }
-    // },
     mounted() {
         this.player = videojs(this.$refs.videoPlayer, this.options, () => {
             this.player.log('onPlayerReady', this);
