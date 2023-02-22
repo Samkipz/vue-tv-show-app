@@ -46,12 +46,18 @@
                 <div class="text-h5 mb-1">{{ video.name }}</div>
                 <!-- <v-rating v-model="rating" background-color="orange lighten-3" color="orange" large></v-rating> -->
 
+                <h6> <v-btn x-small> <v-icon :icon="icons.mdiBellAlert" left />Subscribe</v-btn>
+                </h6>
 
-                <v-btn elevation="1" dense color="success" @click="removeFav" v-if="isFav">
-                    Added to Favourite
-                </v-btn>
+                <div v-if="currentUser.user && currentUser.user.attributes.favVideos.includes(this.video.id)"><v-btn
+                        elevation="1" dense color="success" @click="removeFav">
+                        Added to Favourite
+                    </v-btn></div>
 
-                <h2 v-else> <v-btn @click="addFav">Add Fovourite</v-btn> </h2>
+
+
+                <h2 v-else> <v-btn @click="addFav">
+                        <v-icon :icon="icons.mdiHeartOutline" left /> Add Fovourite</v-btn> </h2>
                 <!-- <v-btn elevation="1" dense color="success" @click="resetValidation">
                     Added to Favourite
                 </v-btn> -->
@@ -69,9 +75,9 @@
                         </v-list-item-title>
                         <v-list-item-subtitle>No comments for this Show. Hey! Add comment</v-list-item-subtitle>
                         <v-form ref="form" v-model="valid" lazy-validation>
-                            <v-rating v-model="rating" half-increments hover background-color="orange lighten-3"
-                                color="orange" large></v-rating>
-                            <v-textarea v-model="comment" label="Comment" required></v-textarea>
+                            <v-rating half-increments hover background-color="orange lighten-3" color="orange"
+                                large></v-rating>
+                            <v-textarea label="Comment" required></v-textarea>
                             <v-btn outlined rounded text class="mb-4 mx-2">
                                 Submit
                             </v-btn>
@@ -82,32 +88,26 @@
 
         </v-col>
     </v-row>
-
-    <!-- <hr style="border: 2px solid black, width: 100vw" /> -->
-
-    <!-- <v-row>
-        <v-col class="justify-center">
-            <h4> {{ video.description }}</h4>
-            <br />
-            <h4 class="red--text" v-if="isFav"> added to favourites </h4>
-            <h2 v-else> <v-btn @click="addFav">Add Fovourite</v-btn> </h2>
-        </v-col>
-    </v-row> -->
-    <!-- </v-container> -->
 </template>
 
 <script>
 
 import 'video.js/dist/video-js.css'
 import VideoPlayer from '../components/VideoPlayer.vue';
+import { mdiBellAlert, mdiHeartOutline } from '@mdi/js'
 import { mapState } from 'vuex';
 
 export default {
     data: () => ({
         items: ['Season 1', 'Season 2', 'Season 3', 'Season 4'],
+        icons: {
+            mdiHeartOutline,
+            mdiBellAlert
+        }
     }),
     computed: {
-        ...mapState(['addedToFavourites', 'videos',]),
+        ...mapState(['currentUser']),
+        ...mapState(['userAttributes', 'videos',]),
         video() {
             // console.log(this.videos)
             let video;
@@ -124,12 +124,6 @@ export default {
 
             // return this.$store.state.videos.find(vid => parseInt(vid.id) === parseInt(this.$route.params.id))
             // return this.$store.state.videos.find(vid => parseInt(vid.id) === parseInt((this.$route.params.id)) ? alert(vid.name) : alert('Not found'))
-        },
-        myfunc() {
-            const test = this.y;
-            console.log(test)
-            debugger
-            return test
         },
         playerOptions() {
             return {
@@ -154,7 +148,14 @@ export default {
     },
     methods: {
         addFav() {
-            this.$store.dispatch('addFav', this.video.id)
+            if (this.currentUser.user) {
+                this.$store.dispatch('addFav', this.video.id)
+            } else {
+                this.$router.push("/register")
+            }
+        },
+        removeFav() {
+            this.$store.dispatch('removeFav', this.video.id)
         }
     }
 }

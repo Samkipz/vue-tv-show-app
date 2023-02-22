@@ -2,8 +2,12 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Homepage from '../views/Homepage.vue'
 import VideoDetail from '../views/VideoDetail.vue'
 import VideoCreate from '../views/VideoCreate.vue'
+import VideoEdit from '../views/VideoEdit.vue'
 import AdminVideos from '../views/AdminVideos.vue'
-// import HelloWorld from '@/components/HelloWorld.vue'
+import AdminUsersList from '../views/AdminUsersList.vue'
+import UserLogin from '../views/UserLogin.vue'
+import UserRegister from '../views/UserRegister.vue'
+import UserProfile from '../views/UserProfile.vue'
 
 const routes = [
   {
@@ -20,21 +24,76 @@ const routes = [
   {
     path: '/video/new',
     name: 'video-create',
-    component: VideoCreate
+    component: VideoCreate,
+    beforeEnter(to, from, next) {
+      let currentUser = JSON.parse(window.localStorage.currentUser)
+      if (currentUser && currentUser.user.attributes.admin) {
+        next()
+      }
+      else {
+        next("/");
+      }
+    }
+  },
+  {
+    path: '/admin/videos/:id/edit',
+    name: 'video-edit',
+    component: VideoEdit,
+    params: true,
+    beforeEnter(to, from, next) {
+      let currentUser = JSON.parse(window.localStorage.currentUser)
+      if (currentUser && currentUser.user.attributes.admin) {
+        next()
+      }
+      else {
+        next("/");
+      }
+    }
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: UserLogin
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: UserRegister
+  },
+  {
+    path: '/profile/:id',
+    name: 'user-profile',
+    component: UserProfile,
+    params: true,
   },
   {
     path: '/admin/videos',
     name: 'admin-videos',
-    component: AdminVideos
+    component: AdminVideos,
+    beforeEnter(to, from, next) {
+      let currentUser = JSON.parse(window.localStorage.currentUser)
+      if (currentUser && currentUser.user.attributes.admin) {
+        next()
+      }
+      else {
+        next("/");
+      }
+    }
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
+    path: '/admin/users',
+    name: 'admin-users',
+    component: AdminUsersList,
+    beforeEnter(to, from, next) {
+      let currentUser = JSON.parse(window.localStorage.currentUser)
+      if (currentUser && currentUser.user.attributes.admin) {
+        next()
+      }
+      else {
+        next("/");
+      }
+    }
+  },
 ]
 
 const router = createRouter({

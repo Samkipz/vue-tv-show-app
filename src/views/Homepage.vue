@@ -16,11 +16,6 @@
         </v-footer>
     </v-app>
 
-
-
-    <!-- <div>
-        <MovieList />
-    </div> -->
 </template>
 
 <script>

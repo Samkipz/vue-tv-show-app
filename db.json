@@ -2,60 +2,99 @@
   "videos": [
     {
       "id": 1,
-      "name": "first movie",
-      "description": "fLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "name": "Spider Man: Far from home",
+      "description": "Forem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
       "thumbnail": "https://wallup.net/wp-content/uploads/2016/07/19/11980-Spider-Man-748x421.jpg",
       "videoUrl": "http://img-ys011.didistatic.com/static/didiglobal/do1_pcUZZjSG7vFlMbdr8fA6.mp4"
     },
     {
       "id": 2,
-      "name": "second movie",
+      "name": "Drive Angry",
       "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
       "thumbnail": "https://cdn.wallpapersafari.com/81/36/iO3gDT.jpg",
       "videoUrl": "https://static.videezy.com/system/resources/previews/000/034/532/original/point2.mp4"
     },
     {
       "id": 3,
-      "name": "third movie",
-      "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.",
+      "name": "The Lost Tommorrow",
+      "description": "Well there are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.",
       "thumbnail": "https://www.pixelstalk.net/wp-content/uploads/images6/Movie-HD-Wallpaper-Free-download.jpg",
       "videoUrl": "https://static.videezy.com/system/resources/previews/000/020/207/original/Awards_Show_Video_Preview.mp4"
     },
     {
       "id": 4,
-      "name": "fourth movie",
+      "name": "Harry Porter",
       "description": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section 1.10.32.",
       "thumbnail": "https://www.teahub.io/photos/full/257-2575364_1080p-movie-wallpapers-free-download-hd-desktop-wallpapers.jpg",
       "videoUrl": "https://static.videezy.com/system/resources/previews/000/011/088/original/Videezy_Slideshow_05_Preview.mp4"
+    },
+    {
+      "name": "New Vid",
+      "description": "some description",
+      "thumbnail": "some url",
+      "videoUrl": "some url",
+      "id": 5
     }
   ],
   "users": [
     {
+      "email": "dan@mail.com",
+      "password": "$2a$10$9MkRgwLCpMlJAiMUYwEqb.fQ3azciQn5M/bhGbnI/wdIjXw8r4Tde",
+      "name": "dan kipz",
       "id": 1,
-      "type": "users",
       "attributes": {
-        "id": 1,
-        "name": "Sam Kipz",
-        "email": "sam@mail.com"
+        "favVideos": [
+          1,
+          2
+        ],
+        "admin": true,
+        "subscribed-videos": []
       }
     },
     {
-      "id": 2,
-      "type": "users",
+      "email": "sam@mail.com",
+      "password": "$2a$10$HVVsLICKNtnPlYlQOOLLc.gbWfSYlISFKZavKJfFWxxEl8i7b5Vwq",
+      "name": "sam kipz",
       "attributes": {
-        "id": 2,
-        "name": "Big Fish",
-        "email": "fish@mail.com"
-      }
+        "favVideos": [
+          1
+        ],
+        "admin": false,
+        "subscribed-videos": []
+      },
+      "id": 2
     },
     {
-      "id": 3,
-      "type": "users",
+      "email": "ruth@mail.com",
+      "password": "$2a$10$L/zLHduccVo6ZQ4vhOcj/eR9jL6YftTanzl.CkeQuBNaMJUaN2epC",
+      "name": "ruth mwende",
       "attributes": {
-        "id": 3,
-        "name": "Eve Girl",
-        "email": "eve@mail.com"
-      }
+        "favVideos": [
+          1
+        ],
+        "admin": false,
+        "subscribed-videos": []
+      },
+      "id": 3
+    },
+    {
+      "email": "eve@mail.com",
+      "password": "$2a$10$x.asyIhVApX9b6ViJYL/TOVI1HjfN41iySodceUxRH74KvP1QzUYq",
+      "name": "eve girl",
+      "attributes": {
+        "favVideos": [
+          1
+        ],
+        "admin": false,
+        "subscribed-videos": []
+      },
+      "id": 4
+    },
+    {
+      "email": "alvin@mail.com",
+      "password": "$2a$10$o3CgCOu0dpCDAJK1dyHiwON5xpvCIPJqVuR8bfM6F9XExPDMBGFsm",
+      "name": "alvin",
+      "id": 5
     }
   ]
 }
